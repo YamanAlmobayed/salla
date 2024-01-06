@@ -20,6 +20,3 @@ Key Features:
    Whether accessed on a smartphone or tablet, Salla's responsive design ensures a consistent and enjoyable experience across various devices. The app adapts seamlessly to different screen sizes, providing users with flexibility and convenience.
 
 Salla is not just an e-commerce app; it's a testament to my skill in creating user-centric interfaces. With its showcase of products, user authentication, profile management, and favorites functionality, Salla is a comprehensive demonstration of your proficiency in developing intuitive and visually appealing mobile applications.
-
-Download the app: https://www.mediafire.com/file/mcj8zl9vdy3wwtx/salla.apk/file 
-                  
