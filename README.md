@@ -27,7 +27,7 @@ To get started with the Salla app, follow these steps:
 
 1. **Prerequisites:** Ensure you have Flutter installed on your system. If not, you can install it from the official Flutter website.
 
-2. **Clone the Repository:** Clone this repository to your local machine using the following command.
+2. **Clone the Repository:** Clone this repository to your local machine.
 
 3. **Install Dependencies:** Navigate to the project directory and install the required dependencies.
 
