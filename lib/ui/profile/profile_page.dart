@@ -10,10 +10,7 @@ import '../widgets/default_button.dart';
 import '../widgets/default_formfield.dart';
 
 class ProfilePage extends StatefulWidget {
-  ProfilePage({super.key});
-  final nameController = TextEditingController();
-  final emailController = TextEditingController();
-  final phoneController = TextEditingController();
+  const ProfilePage({super.key});
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
@@ -21,6 +18,17 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   final formKey = GlobalKey<FormState>();
+  final nameController = TextEditingController();
+  final emailController = TextEditingController();
+  final phoneController = TextEditingController();
+
+  @override
+  void dispose() {
+    super.dispose();
+    nameController.dispose();
+    emailController.dispose();
+    phoneController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,13 +42,13 @@ class _ProfilePageState extends State<ProfilePage> {
             state is UpdateUserSuccess ||
             state is UpdateUserLoading) {
           if (state is GetUserSuccess) {
-            widget.nameController.text = state.user.data!.name!;
-            widget.emailController.text = state.user.data!.email!;
-            widget.phoneController.text = state.user.data!.phone!;
+            nameController.text = state.user.data!.name!;
+            emailController.text = state.user.data!.email!;
+            phoneController.text = state.user.data!.phone!;
           } else if (state is UpdateUserSuccess) {
-            widget.nameController.text = state.updatedUser.data!.name!;
-            widget.emailController.text = state.updatedUser.data!.email!;
-            widget.phoneController.text = state.updatedUser.data!.phone!;
+            nameController.text = state.updatedUser.data!.name!;
+            emailController.text = state.updatedUser.data!.email!;
+            phoneController.text = state.updatedUser.data!.phone!;
           }
           return SingleChildScrollView(
             child: Padding(
@@ -55,7 +63,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       height: 20,
                     ),
                     DefaultFormField(
-                      controller: widget.nameController,
+                      controller: nameController,
                       type: TextInputType.name,
                       prefix: Icons.person,
                       label: 'Name',
@@ -68,7 +76,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       height: 20,
                     ),
                     DefaultFormField(
-                      controller: widget.emailController,
+                      controller: emailController,
                       type: TextInputType.emailAddress,
                       label: 'Email',
                       prefix: Icons.email_outlined,
@@ -81,7 +89,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       height: 20,
                     ),
                     DefaultFormField(
-                      controller: widget.phoneController,
+                      controller: phoneController,
                       type: TextInputType.phone,
                       label: 'Phone',
                       prefix: Icons.phone,
@@ -97,9 +105,9 @@ class _ProfilePageState extends State<ProfilePage> {
                         function: () {
                           if (formKey.currentState!.validate()) {
                             context.read<ProfileCubit>().updateUserData(
-                                  name: widget.nameController.text,
-                                  email: widget.emailController.text,
-                                  phone: widget.phoneController.text,
+                                  name: nameController.text,
+                                  email: emailController.text,
+                                  phone: phoneController.text,
                                   token: context.read<AppCubit>().token!,
                                 );
                           }

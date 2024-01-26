@@ -20,6 +20,12 @@ class _SearchPageState extends State<SearchPage> {
   final formKey = GlobalKey<FormState>();
 
   @override
+  void dispose() {
+    super.dispose();
+    textController.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),

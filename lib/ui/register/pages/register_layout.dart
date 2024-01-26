@@ -28,11 +28,11 @@ class _RegisterLayoutState extends State<RegisterLayout> {
 
   @override
   void dispose() {
+    super.dispose();
     emailController.dispose();
     passwordController.dispose();
     nameController.dispose();
     phoneController.dispose();
-    super.dispose();
   }
 
   @override

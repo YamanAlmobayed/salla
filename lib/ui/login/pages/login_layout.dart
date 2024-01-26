@@ -27,9 +27,9 @@ class _LoginLayoutState extends State<LoginLayout> {
 
   @override
   void dispose() {
+    super.dispose();
     emailController.dispose();
     passwordController.dispose();
-    super.dispose();
   }
 
   @override
